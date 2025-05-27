@@ -19,7 +19,7 @@ const msg_1 = require("./msg");
 const token = process.env.token;
 const bot = new node_telegram_bot_api_1.default(token, { polling: true });
 bot.onText(/\/start/, (msg) => {
-    console.log(`${msg.chat.id} initiated a chat`);
+    console.log(`${msg.chat.username} initiated a chat`);
     const text = `
     Hello ${msg.chat.username}, welcome to Teevo Bot.
     This bot allows you to download the teevo daily devotional for each month
