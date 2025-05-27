@@ -19,6 +19,7 @@ const msg_1 = require("./msg");
 const token = process.env.token;
 const bot = new node_telegram_bot_api_1.default(token, { polling: true });
 bot.onText(/\/start/, (msg) => {
+    console.log(`${msg.chat.id} initiated a chat`);
     const text = `
     Hello ${msg.chat.username}, welcome to Teevo Bot.
     This bot allows you to download the teevo daily devotional for each month
@@ -35,6 +36,7 @@ bot.onText(/\/teevo/, (msg) => __awaiter(void 0, void 0, void 0, function* () {
     let date = new Date();
     let date_ = `${msg_1.months[date.getMonth()]}${date.getFullYear()}`;
     return bot.sendDocument(msg.chat.id, msg_1.teevos[msg_1.teevos.length - 1]);
+    console.log(`${msg.chat.username} downloaded ${date_} teevo`);
 }));
 /*bot.onText(/\/teevo (.+)/, async (msg, match) => {
     return bot.sendMessage(msg.chat.id, "This feature is not available at the moment")

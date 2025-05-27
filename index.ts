@@ -8,6 +8,7 @@ const token = process.env.token
 const bot = new TelegramBot(token, { polling: true })
 
 bot.onText(/\/start/, (msg) => {
+    console.log(`${msg.chat.id} initiated a chat`)
     const text = `
     Hello ${msg.chat.username}, welcome to Teevo Bot.
     This bot allows you to download the teevo daily devotional for each month
@@ -26,6 +27,7 @@ bot.onText(/\/teevo/, async (msg) => {
     let date = new Date()
     let date_: string = `${months[date.getMonth()]}${date.getFullYear()}` 
     return bot.sendDocument(msg.chat.id, teevos[teevos.length - 1])
+    console.log(`${msg.chat.username} downloaded ${date_} teevo`)
 })
 
 /*bot.onText(/\/teevo (.+)/, async (msg, match) => {
