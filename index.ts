@@ -22,8 +22,12 @@ bot.onText(/\/start/, (msg) => {
     return bot.sendMessage(msg.chat.id, text)
 })
 
-bot.onText(/\/teevo/, (msg) => {
+bot.onText(/\/teevo/, async (msg) => {
     let date = new Date()
     let date_: string = `${months[date.getMonth()]}${date.getFullYear()}` 
     return bot.sendDocument(msg.chat.id, teevos[teevos.length - 1])
+})
+
+bot.onText(/\/teevo (+)/, async (msg, match) => {
+    return bot.sendMessage(msg.chat.id, "This feature is not available at the moment")
 })
