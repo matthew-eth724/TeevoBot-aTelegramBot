@@ -16,8 +16,15 @@ const node_telegram_bot_api_1 = __importDefault(require("node-telegram-bot-api")
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const msg_1 = require("./msg");
+const express_1 = __importDefault(require("express"));
+const app = (0, express_1.default)();
+const port = process.env.PORT || 3000;
 const token = process.env.token;
 const bot = new node_telegram_bot_api_1.default(token, { polling: true });
+app.get("/", (req, res) => {
+    res.send("this is a telegram bot");
+    console.log("Someone sent a get request");
+});
 bot.onText(/\/start/, (msg) => {
     console.log(`${msg.chat.username} initiated a chat`);
     const text = `
@@ -40,4 +47,7 @@ bot.onText(/\/teevo/, (msg) => __awaiter(void 0, void 0, void 0, function* () {
 }));
 /*bot.onText(/\/teevo (.+)/, async (msg, match) => {
     return bot.sendMessage(msg.chat.id, "This feature is not available at the moment")
-})*/ 
+})*/
+app.listen(port, () => {
+    console.log(`server running on PORT ${port}`);
+});

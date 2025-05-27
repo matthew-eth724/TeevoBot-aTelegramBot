@@ -2,10 +2,17 @@ import TelegramBot from "node-telegram-bot-api";
 import dotenv from "dotenv";
 dotenv.config()
 import { teevos, months } from "./msg";
+import express from "express"
+const app = express()
 
-
+const port = process.env.PORT || 3000
 const token = process.env.token
 const bot = new TelegramBot(token, { polling: true })
+
+app.get("/", (req, res) => {
+    res.send("this is a telegram bot")
+    console.log("Someone sent a get request")
+})
 
 bot.onText(/\/start/, (msg) => {
     console.log(`${msg.chat.username} initiated a chat`)
@@ -33,3 +40,7 @@ bot.onText(/\/teevo/, async (msg) => {
 /*bot.onText(/\/teevo (.+)/, async (msg, match) => {
     return bot.sendMessage(msg.chat.id, "This feature is not available at the moment")
 })*/
+
+app.listen(port, () => {
+    console.log(`server running on PORT ${port}`)
+})
