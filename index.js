@@ -36,6 +36,6 @@ bot.onText(/\/teevo/, (msg) => __awaiter(void 0, void 0, void 0, function* () {
     let date_ = `${msg_1.months[date.getMonth()]}${date.getFullYear()}`;
     return bot.sendDocument(msg.chat.id, msg_1.teevos[msg_1.teevos.length - 1]);
 }));
-bot.onText(/\/teevo (+)/, (msg, match) => __awaiter(void 0, void 0, void 0, function* () {
+bot.onText(/\/teevo (.+)/, (msg, match) => __awaiter(void 0, void 0, void 0, function* () {
     return bot.sendMessage(msg.chat.id, "This feature is not available at the moment");
 }));

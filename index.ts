@@ -28,6 +28,6 @@ bot.onText(/\/teevo/, async (msg) => {
     return bot.sendDocument(msg.chat.id, teevos[teevos.length - 1])
 })
 
-bot.onText(/\/teevo (+)/, async (msg, match) => {
+bot.onText(/\/teevo (.+)/, async (msg, match) => {
     return bot.sendMessage(msg.chat.id, "This feature is not available at the moment")
 })
