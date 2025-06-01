@@ -34,7 +34,7 @@ const Teevo: string = "./teevos/Teevo_June2025"
 bot.onText(/\/teevo/, async (msg) => {
     let date = new Date()
     let date_: string = `${months[date.getMonth()]}${date.getFullYear()}` 
-    return bot.sendDocument(msg.chat.id, teevos[Teevo])
+    return bot.sendDocument(msg.chat.id, Teevo)
     console.log(`${msg.chat.username} downloaded ${date_} teevo`)
 })
 
