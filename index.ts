@@ -30,7 +30,7 @@ bot.onText(/\/start/, (msg) => {
     return bot.sendMessage(msg.chat.id, text)
 })
 
-const Teevo: number = teevos.length - 1
+const Teevo: string = "./teevos/Teevo_June2025"
 bot.onText(/\/teevo/, async (msg) => {
     let date = new Date()
     let date_: string = `${months[date.getMonth()]}${date.getFullYear()}` 
