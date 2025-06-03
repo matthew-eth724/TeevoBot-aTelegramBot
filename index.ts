@@ -30,11 +30,11 @@ bot.onText(/\/start/, (msg) => {
     return bot.sendMessage(msg.chat.id, text)
 })
 
-const Teevo: string = "./teevos/Teevo_June2025"
+//const Teevo: string = "./teevos/Teevo_June2025"
 bot.onText(/\/teevo/, async (msg) => {
     let date = new Date()
     let date_: string = `${months[date.getMonth()]}${date.getFullYear()}` 
-    return bot.sendDocument(msg.chat.id, Teevo)
+    return bot.sendDocument(msg.chat.id, teevos[teevos.length - 1])
     console.log(`${msg.chat.username} downloaded ${date_} teevo`)
 })
 

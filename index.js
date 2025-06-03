@@ -39,6 +39,7 @@ bot.onText(/\/start/, (msg) => {
     `;
     return bot.sendMessage(msg.chat.id, text);
 });
+//const Teevo: string = "./teevos/Teevo_June2025"
 bot.onText(/\/teevo/, (msg) => __awaiter(void 0, void 0, void 0, function* () {
     let date = new Date();
     let date_ = `${msg_1.months[date.getMonth()]}${date.getFullYear()}`;
